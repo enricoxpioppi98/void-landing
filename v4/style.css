@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    font-size: 0.7rem;
+    position: relative;
+    z-index: 10;
+}
+
+nav .back {
+    color: #00ff41;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+nav .back:hover {
+    opacity: 1;
+}
+
+nav .version {
+    color: #00ff41;
+    opacity: 0.3;
+}
+
+.terminal {
+    max-width: 750px;
+    margin: 2rem auto;
+    border: 1px solid #1a3a1a;
+    position: relative;
+    z-index: 5;
+}
+
+.terminal-header {
+    background: #0d1a0d;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #1a3a1a;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1a3a1a;
+}
+
+.terminal-title {
+    font-size: 0.65rem;
+    color: #1a5a1a;
+    margin-left: 0.5rem;
+}
+
+.terminal-body {
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.line {
+    font-size: 0.8rem;
+    white-space: pre;
+}
+
+.prompt {
+    color: #00aa2a;
+}
+
+.output {
+    color: #00dd3a;
+}
+
+.dim {
+    color: #0a6a1a;
+}
+
+.green {
+    color: #00ff41;
+    font-weight: bold;
+}
+
+.ascii-art {
+    font-size: 0.6rem;
+    line-height: 1.1;
+    color: #00ff41;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+
+@media (max-width: 600px) {
+    .terminal {
+        margin: 1rem;
+    }
+
+    .ascii-art {
+        font-size: 0.4rem;
+    }
+
+    .line {
+        font-size: 0.7rem;
+    }
+}

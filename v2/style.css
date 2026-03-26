@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    font-size: 0.7rem;
+    border-bottom: 3px solid #fff;
+}
+
+nav .back {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav .version {
+    color: #fff;
+}
+
+.block {
+    border-bottom: 3px solid #fff;
+    padding: 3rem 2rem;
+}
+
+.block-hero {
+    padding: 6rem 2rem;
+}
+
+.block-hero h1 {
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: -0.3rem;
+    line-height: 0.85;
+    text-transform: uppercase;
+}
+
+.stamp {
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3rem;
+    color: #888;
+}
+
+.block-manifesto {
+    padding: 4rem 2rem;
+}
+
+.big-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.block-stats {
+    display: flex;
+    gap: 0;
+}
+
+.stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    border-right: 3px solid #fff;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-num {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2rem;
+    color: #888;
+    margin-top: 0.5rem;
+}
+
+.block-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.block-cta a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.5rem;
+    border: 3px solid #fff;
+    padding: 1rem 3rem;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+}
+
+.block-cta a:hover {
+    background: #fff;
+    color: #000;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    font-size: 0.6rem;
+    color: #555;
+    letter-spacing: 0.1rem;
+}
+
+@media (max-width: 600px) {
+    .block-hero h1 {
+        font-size: 4rem;
+    }
+
+    .big-text {
+        font-size: 1.3rem;
+    }
+
+    .block-stats {
+        flex-direction: column;
+    }
+
+    .stat {
+        border-right: none;
+        border-bottom: 3px solid #fff;
+    }
+
+    .stat:last-child {
+        border-bottom: none;
+    }
+}
