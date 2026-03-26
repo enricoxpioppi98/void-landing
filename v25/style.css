@@ -70,7 +70,7 @@ nav {
 }
 
 /* ============================================
-   FIXED SPACE SCENE
+   SPACE SCENE — fixed behind everything
    ============================================ */
 
 .space-scene {
@@ -81,28 +81,11 @@ nav {
     height: 100vh;
     z-index: 0;
     overflow: hidden;
-    /* Scroll-driven zoom: approach the black hole */
-    animation: scene-zoom linear;
-    animation-timeline: scroll();
-    animation-range: 0% 60%;
-}
-
-@keyframes scene-zoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(2.5); }
 }
 
 /* ============================================
-   STAR FIELD — two layers for parallax depth
+   STARS
    ============================================ */
-
-.star-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
 .star {
     position: absolute;
@@ -110,201 +93,234 @@ nav {
     height: 2px;
     background: #fff;
     border-radius: 50%;
-    animation: twinkle 3s ease-in-out infinite;
+    animation: twinkle 4s ease-in-out infinite;
 }
 
-.star.sm {
+.star.s {
     width: 1px;
     height: 1px;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
-.star:nth-child(odd) { animation-duration: 4s; }
-.star:nth-child(3n) { animation-duration: 5s; background: rgba(255, 220, 180, 0.9); }
-.star:nth-child(4n) { animation-delay: 1s; }
-.star:nth-child(5n) { animation-delay: 2s; }
+.star:nth-child(odd) { animation-duration: 5s; }
+.star:nth-child(3n) { animation-duration: 6s; background: rgba(255, 220, 180, 0.8); }
+.star:nth-child(4n) { animation-delay: 1.5s; }
+.star:nth-child(5n) { animation-delay: 3s; }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.8; }
 }
 
 /* ============================================
-   DEBRIS — particles spiraling toward the hole
+   3D BLACK HOLE SCENE
    ============================================ */
 
-.debris {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: rgba(255, 200, 120, 0.7);
-    border-radius: 50%;
-    box-shadow: 0 0 6px 2px rgba(255, 160, 60, 0.3);
-}
-
-.debris-1 {
-    top: 50%;
-    left: 50%;
-    animation: spiral-1 10s linear infinite;
-}
-
-.debris-2 {
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 2px;
-    opacity: 0.6;
-    animation: spiral-2 14s linear infinite;
-}
-
-.debris-3 {
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 2px;
-    opacity: 0.8;
-    box-shadow: 0 0 4px 1px rgba(255, 180, 80, 0.4);
-    animation: spiral-3 8s linear infinite;
-}
-
-.debris-4 {
-    top: 50%;
-    left: 50%;
-    width: 1.5px;
-    height: 1.5px;
-    opacity: 0.5;
-    animation: spiral-4 18s linear infinite;
-}
-
-.debris-5 {
-    top: 50%;
-    left: 50%;
-    width: 2.5px;
-    height: 2.5px;
-    opacity: 0.7;
-    background: rgba(255, 180, 100, 0.8);
-    animation: spiral-5 12s linear infinite;
-}
-
-@keyframes spiral-1 {
-    0%   { transform: rotate(0deg)   translateX(35vmin) rotate(0deg);   opacity: 0; }
-    10%  { opacity: 0.8; }
-    90%  { opacity: 0.8; }
-    100% { transform: rotate(720deg) translateX(2vmin)  rotate(-720deg); opacity: 0; }
-}
-
-@keyframes spiral-2 {
-    0%   { transform: rotate(60deg)   translateX(40vmin) rotate(-60deg);   opacity: 0; }
-    10%  { opacity: 0.6; }
-    90%  { opacity: 0.5; }
-    100% { transform: rotate(600deg)  translateX(3vmin)  rotate(-600deg);  opacity: 0; }
-}
-
-@keyframes spiral-3 {
-    0%   { transform: rotate(150deg)  translateX(30vmin) rotate(-150deg);  opacity: 0; }
-    10%  { opacity: 0.8; }
-    90%  { opacity: 0.6; }
-    100% { transform: rotate(870deg)  translateX(1.5vmin) rotate(-870deg); opacity: 0; }
-}
-
-@keyframes spiral-4 {
-    0%   { transform: rotate(220deg)  translateX(45vmin) rotate(-220deg);  opacity: 0; }
-    10%  { opacity: 0.5; }
-    90%  { opacity: 0.3; }
-    100% { transform: rotate(940deg)  translateX(4vmin)  rotate(-940deg);  opacity: 0; }
-}
-
-@keyframes spiral-5 {
-    0%   { transform: rotate(300deg)  translateX(32vmin) rotate(-300deg);  opacity: 0; }
-    10%  { opacity: 0.7; }
-    90%  { opacity: 0.5; }
-    100% { transform: rotate(1020deg) translateX(2.5vmin) rotate(-1020deg); opacity: 0; }
-}
-
-/* ============================================
-   AMBIENT GLOW
-   ============================================ */
-
-.ambient-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70vmin;
-    height: 70vmin;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 140, 40, 0.1) 0%,
-        rgba(255, 100, 20, 0.06) 25%,
-        rgba(200, 60, 10, 0.03) 45%,
-        transparent 65%
-    );
-    animation: glow-breathe 8s ease-in-out infinite;
-}
-
-@keyframes glow-breathe {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
-}
-
-/* ============================================
-   BLACK HOLE IMAGE — spinning
-   ============================================ */
-
-.black-hole-wrap {
+.black-hole-scene {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50vmin;
     height: 50vmin;
+    perspective: 800px;
 }
 
-.black-hole-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Warm ambient glow behind everything */
+.bh-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
     border-radius: 50%;
-    mask-image: radial-gradient(circle, white 35%, transparent 65%);
-    -webkit-mask-image: radial-gradient(circle, white 35%, transparent 65%);
+    background: radial-gradient(
+        circle,
+        rgba(255, 140, 40, 0.08) 0%,
+        rgba(255, 100, 20, 0.05) 20%,
+        rgba(200, 60, 10, 0.03) 35%,
+        rgba(150, 40, 5, 0.015) 50%,
+        transparent 65%
+    );
+    animation: glow-pulse 7s ease-in-out infinite;
 }
 
-/* Spinning accretion disk — bright asymmetric ring around the black hole */
+@keyframes glow-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.75; }
+}
+
+/* ============================================
+   GRAVITATIONAL LENSING ARC
+   The bright arc of light visible above the black hole
+   in the M87 image — light bent over the top
+   ============================================ */
+
+.lensing-arc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+    border-top-color: rgba(255, 200, 100, 0.12);
+    border-left-color: rgba(255, 180, 80, 0.06);
+    border-right-color: rgba(255, 180, 80, 0.06);
+    box-shadow:
+        0 -8px 25px rgba(255, 170, 60, 0.06),
+        0 -4px 15px rgba(255, 200, 100, 0.04);
+    animation: lensing-rotate 60s linear infinite reverse;
+    z-index: 3;
+}
+
+@keyframes lensing-rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ============================================
+   3D ACCRETION DISK
+   Tilted via rotateX to appear as an ellipse,
+   spins via rotateZ while maintaining tilt
+   ============================================ */
+
 .accretion-disk {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 58vmin;
-    height: 58vmin;
-    margin-top: -29vmin;
-    margin-left: -29vmin;
-    border-radius: 50%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        rgba(255, 170, 60, 0.15) 30deg,
-        rgba(255, 200, 100, 0.3) 70deg,
-        rgba(255, 160, 50, 0.12) 120deg,
-        transparent 180deg,
-        rgba(255, 140, 40, 0.08) 230deg,
-        rgba(255, 180, 80, 0.2) 290deg,
-        rgba(255, 160, 50, 0.06) 340deg,
-        transparent 360deg
-    );
-    mask-image: radial-gradient(circle, transparent 42%, black 44%, black 50%, transparent 52%);
-    -webkit-mask-image: radial-gradient(circle, transparent 42%, black 44%, black 50%, transparent 52%);
-    filter: blur(3px);
-    animation: disk-spin 25s linear infinite;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg);
+    animation: disk-spin 35s linear infinite;
+    z-index: 2;
 }
 
 @keyframes disk-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg); }
+    to { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg); }
+}
+
+.disk-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Outermost ring — faint, wide */
+.r1 {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 140, 40, 0.08);
+    box-shadow:
+        0 0 20px 4px rgba(255, 120, 30, 0.03),
+        inset 0 0 15px 3px rgba(255, 120, 30, 0.02);
+}
+
+.r2 {
+    width: 88%;
+    height: 88%;
+    border: 1.5px solid rgba(255, 160, 50, 0.12);
+    box-shadow:
+        0 0 20px 5px rgba(255, 140, 40, 0.05),
+        inset 0 0 15px 3px rgba(255, 140, 40, 0.03);
+}
+
+.r3 {
+    width: 76%;
+    height: 76%;
+    border: 2px solid rgba(255, 180, 70, 0.18);
+    box-shadow:
+        0 0 25px 6px rgba(255, 150, 50, 0.07),
+        inset 0 0 20px 4px rgba(255, 150, 50, 0.04);
+}
+
+/* Brightest ring — hottest region closest to the hole */
+.r4 {
+    width: 66%;
+    height: 66%;
+    border: 2.5px solid rgba(255, 200, 100, 0.25);
+    box-shadow:
+        0 0 30px 8px rgba(255, 170, 60, 0.1),
+        0 0 60px 15px rgba(255, 140, 40, 0.05),
+        inset 0 0 25px 5px rgba(255, 170, 60, 0.06);
+}
+
+.r5 {
+    width: 58%;
+    height: 58%;
+    border: 2px solid rgba(255, 220, 140, 0.2);
+    box-shadow:
+        0 0 25px 6px rgba(255, 180, 80, 0.08),
+        inset 0 0 20px 4px rgba(255, 180, 80, 0.04);
+}
+
+/* Innermost visible ring — fading into the shadow */
+.r6 {
+    width: 52%;
+    height: 52%;
+    border: 1px solid rgba(255, 200, 120, 0.1);
+    box-shadow:
+        0 0 15px 4px rgba(255, 160, 60, 0.04),
+        inset 0 0 10px 2px rgba(255, 160, 60, 0.03);
 }
 
 /* ============================================
-   HERO CONTENT — fades out as you scroll in
+   EVENT HORIZON — the absolute dark center
+   Sits on top of the disk to obscure the center
+   ============================================ */
+
+.event-horizon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28%;
+    height: 28%;
+    border-radius: 50%;
+    background: #000;
+    z-index: 4;
+    box-shadow:
+        0 0 30px 10px rgba(0, 0, 0, 1),
+        0 0 60px 25px rgba(0, 0, 0, 0.9),
+        0 0 100px 40px rgba(0, 0, 0, 0.6),
+        0 0 150px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   PHOTON RING — bright thin ring at the edge
+   of the event horizon shadow
+   ============================================ */
+
+.photon-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32%;
+    height: 32%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 220, 150, 0.15);
+    z-index: 3;
+    box-shadow:
+        0 0 10px 2px rgba(255, 200, 100, 0.06),
+        0 0 25px 5px rgba(255, 160, 60, 0.03),
+        inset 0 0 10px 2px rgba(255, 200, 100, 0.04);
+    animation: photon-pulse 5s ease-in-out infinite;
+}
+
+@keyframes photon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ============================================
+   HERO CONTENT
    ============================================ */
 
 main {
@@ -321,14 +337,6 @@ main {
     z-index: 10;
     text-align: center;
     padding: 2rem;
-    animation: content-fade linear;
-    animation-timeline: scroll();
-    animation-range: 0% 20%;
-}
-
-@keyframes content-fade {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-30px); }
 }
 
 .overline {
@@ -401,7 +409,7 @@ h1 {
 }
 
 /* ============================================
-   BELOW-FOLD — solid backgrounds over the scene
+   BELOW-FOLD SECTIONS
    ============================================ */
 
 .features-section {
@@ -610,4 +618,5 @@ footer {
     .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-stats { grid-template-columns: repeat(3, 1fr); }
     .footer-links { display: none; }
+    .black-hole-scene { width: 70vmin; height: 70vmin; }
 }
