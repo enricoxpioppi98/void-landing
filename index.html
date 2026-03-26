@@ -7,161 +7,264 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Fixed black hole background -->
+    <div class="black-hole-bg">
+        <div class="accretion-glow"></div>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring ring-4"></div>
+        <div class="ring ring-5"></div>
+        <div class="event-horizon"></div>
+    </div>
+
+    <!-- Hero: full screen, you start outside the black hole -->
     <header class="hero">
-        <h1>V O I D</h1>
-        <p class="tagline">See beyond the event horizon.</p>
-        <p class="subtitle">25 iterations exploring a black-hole data visualization platform.<br>A journey from divergence to convergence.</p>
+        <div class="hero-content">
+            <h1>V O I D</h1>
+            <p class="tagline">See beyond the event horizon.</p>
+            <div class="hero-divider"></div>
+            <p class="subtitle">25 iterations. One black hole.<br>Scroll to fall in.</p>
+            <div class="scroll-arrow">↓</div>
+        </div>
     </header>
 
+    <!-- Phase 1: still in the outer rings -->
     <main>
-        <section class="phase">
-            <div class="phase-header">
-                <h2>Phase 1: Go Wide</h2>
-                <p>Radically different directions. Exploring layouts, moods, and visual styles without constraints.</p>
+        <section class="phase phase-1">
+            <div class="phase-marker">
+                <span class="phase-num">I</span>
+                <h2>Go Wide</h2>
+                <p>10 radically different directions. No constraints.</p>
             </div>
-            <div class="grid">
-                <a href="v1/" class="card">
-                    <span class="card-number">01</span>
-                    <span class="card-title">Dark Minimal</span>
-                    <span class="card-desc">Single centered headline, deep black, thin white type</span>
+            <div class="version-stream">
+                <a href="v1/" class="version">
+                    <span class="v-num">01</span>
+                    <div class="v-info">
+                        <span class="v-title">Dark Minimal</span>
+                        <span class="v-desc">Single centered headline, deep black, thin white type</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v2/" class="card">
-                    <span class="card-number">02</span>
-                    <span class="card-title">Brutalist</span>
-                    <span class="card-desc">Raw, harsh, monospace, high contrast blocks</span>
+                <a href="v2/" class="version">
+                    <span class="v-num">02</span>
+                    <div class="v-info">
+                        <span class="v-title">Brutalist</span>
+                        <span class="v-desc">Raw, harsh, monospace, high contrast blocks</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v3/" class="card">
-                    <span class="card-number">03</span>
-                    <span class="card-title">Editorial</span>
-                    <span class="card-desc">Large serif type, asymmetric layout, feature story feel</span>
+                <a href="v3/" class="version">
+                    <span class="v-num">03</span>
+                    <div class="v-info">
+                        <span class="v-title">Editorial</span>
+                        <span class="v-desc">Large serif type, asymmetric layout, feature story feel</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v4/" class="card">
-                    <span class="card-number">04</span>
-                    <span class="card-title">Retro Sci-Fi</span>
-                    <span class="card-desc">CRT scanlines, green-on-black, terminal aesthetic</span>
+                <a href="v4/" class="version">
+                    <span class="v-num">04</span>
+                    <div class="v-info">
+                        <span class="v-title">Retro Sci-Fi</span>
+                        <span class="v-desc">CRT scanlines, green-on-black, terminal aesthetic</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v5/" class="card">
-                    <span class="card-number">05</span>
-                    <span class="card-title">Cosmic Gradient</span>
-                    <span class="card-desc">Flowing dark purple/blue gradients, soft glows</span>
+                <a href="v5/" class="version">
+                    <span class="v-num">05</span>
+                    <div class="v-info">
+                        <span class="v-title">Cosmic Gradient</span>
+                        <span class="v-desc">Flowing dark purple/blue gradients, soft glows</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v6/" class="card">
-                    <span class="card-number">06</span>
-                    <span class="card-title">Data Dashboard</span>
-                    <span class="card-desc">Grid of data viz panels, mission-control layout</span>
+                <a href="v6/" class="version">
+                    <span class="v-num">06</span>
+                    <div class="v-info">
+                        <span class="v-title">Data Dashboard</span>
+                        <span class="v-desc">Grid of data viz panels, mission-control layout</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v7/" class="card">
-                    <span class="card-number">07</span>
-                    <span class="card-title">Full-Bleed Immersive</span>
-                    <span class="card-desc">Giant CSS black hole graphic fills the viewport</span>
+                <a href="v7/" class="version">
+                    <span class="v-num">07</span>
+                    <div class="v-info">
+                        <span class="v-title">Full-Bleed Immersive</span>
+                        <span class="v-desc">Giant CSS black hole graphic fills the viewport</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v8/" class="card">
-                    <span class="card-number">08</span>
-                    <span class="card-title">Typographic</span>
-                    <span class="card-desc">Massive type as the hero, almost no imagery</span>
+                <a href="v8/" class="version">
+                    <span class="v-num">08</span>
+                    <div class="v-info">
+                        <span class="v-title">Typographic</span>
+                        <span class="v-desc">Massive type as the hero, almost no imagery</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v9/" class="card">
-                    <span class="card-number">09</span>
-                    <span class="card-title">Japanese Minimalism</span>
-                    <span class="card-desc">Asymmetric balance, zen composition, vast darkspace</span>
+                <a href="v9/" class="version">
+                    <span class="v-num">09</span>
+                    <div class="v-info">
+                        <span class="v-title">Japanese Minimalism</span>
+                        <span class="v-desc">Asymmetric balance, zen composition, vast darkspace</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v10/" class="card">
-                    <span class="card-number">10</span>
-                    <span class="card-title">Geometric Abstract</span>
-                    <span class="card-desc">Concentric rings, orbital paths, pure CSS shapes</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="phase">
-            <div class="phase-header">
-                <h2>Phase 2: Narrow Down</h2>
-                <p>Combining the strongest elements. Mixing layouts, typography, and moods from Phase 1.</p>
-            </div>
-            <div class="grid">
-                <a href="v11/" class="card">
-                    <span class="card-number">11</span>
-                    <span class="card-title">Immersive + Minimal</span>
-                    <span class="card-desc">v7's black hole + v1's clean centered layout, pulsing rings</span>
-                </a>
-                <a href="v12/" class="card">
-                    <span class="card-number">12</span>
-                    <span class="card-title">Immersive + Editorial</span>
-                    <span class="card-desc">v7's black hole + v3's Playfair serif and editorial tone</span>
-                </a>
-                <a href="v13/" class="card">
-                    <span class="card-number">13</span>
-                    <span class="card-title">Immersive + Dashboard</span>
-                    <span class="card-desc">v7's black hole hero + v6's data panels and telemetry feed</span>
-                </a>
-                <a href="v14/" class="card">
-                    <span class="card-number">14</span>
-                    <span class="card-title">Immersive + Typography</span>
-                    <span class="card-desc">v7's black hole + v8's bold split-screen type layout</span>
-                </a>
-                <a href="v15/" class="card">
-                    <span class="card-number">15</span>
-                    <span class="card-title">Refined Immersive</span>
-                    <span class="card-desc">Sticky nav, breathing glow, warm amber accents, feature cards</span>
-                </a>
-                <a href="v16/" class="card">
-                    <span class="card-number">16</span>
-                    <span class="card-title">Product Page</span>
-                    <span class="card-desc">Polished product landing with info cards, stats bar, warm CTAs</span>
-                </a>
-                <a href="v17/" class="card">
-                    <span class="card-number">17</span>
-                    <span class="card-title">Full Landing</span>
-                    <span class="card-desc">Complete sections: hero, features, quote, metrics, footer</span>
-                </a>
-                <a href="v18/" class="card">
-                    <span class="card-number">18</span>
-                    <span class="card-title">Refined Landing</span>
-                    <span class="card-desc">Tighter spacing, accent lines, discovery section with stats</span>
+                <a href="v10/" class="version">
+                    <span class="v-num">10</span>
+                    <div class="v-info">
+                        <span class="v-title">Geometric Abstract</span>
+                        <span class="v-desc">Concentric rings, orbital paths, pure CSS shapes</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
             </div>
         </section>
 
-        <section class="phase">
-            <div class="phase-header">
-                <h2>Phase 3: Converge</h2>
-                <p>Refining toward the final design. Small tweaks, polish, and intentional decisions.</p>
+        <!-- Phase 2: crossing the photon sphere -->
+        <section class="phase phase-2">
+            <div class="phase-marker">
+                <span class="phase-num">II</span>
+                <h2>Narrow Down</h2>
+                <p>Chose v7's immersive black hole. Mixing in the best of everything else.</p>
             </div>
-            <div class="grid">
-                <a href="v19/" class="card">
-                    <span class="card-number">19</span>
-                    <span class="card-title">+ Glow + Scroll</span>
-                    <span class="card-desc">Added rotating accretion glow and scroll section with description</span>
+            <div class="version-stream">
+                <a href="v11/" class="version">
+                    <span class="v-num">11</span>
+                    <div class="v-info">
+                        <span class="v-title">Immersive + Minimal</span>
+                        <span class="v-desc">v7's black hole + v1's clean centered layout, pulsing rings</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v20/" class="card">
-                    <span class="card-number">20</span>
-                    <span class="card-title">Hero Simplify</span>
-                    <span class="card-desc">Overline label, bigger title, stripped divider and desc for cleaner hero</span>
+                <a href="v12/" class="version">
+                    <span class="v-num">12</span>
+                    <div class="v-info">
+                        <span class="v-title">Immersive + Editorial</span>
+                        <span class="v-desc">v7's black hole + v3's Playfair serif and editorial tone</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v21/" class="card">
-                    <span class="card-number">21</span>
-                    <span class="card-title">+ Features Grid</span>
-                    <span class="card-desc">Replaced scroll paragraph with structured 3-column features</span>
+                <a href="v13/" class="version">
+                    <span class="v-num">13</span>
+                    <div class="v-info">
+                        <span class="v-title">Immersive + Dashboard</span>
+                        <span class="v-desc">v7's black hole hero + v6's data panels and telemetry feed</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v22/" class="card">
-                    <span class="card-number">22</span>
-                    <span class="card-title">Warm + Stats + Nav</span>
-                    <span class="card-desc">Frosted glass nav, warmer amber palette, accent lines, stats bar</span>
+                <a href="v14/" class="version">
+                    <span class="v-num">14</span>
+                    <div class="v-info">
+                        <span class="v-title">Immersive + Typography</span>
+                        <span class="v-desc">v7's black hole + v8's bold split-screen type layout</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v23/" class="card">
-                    <span class="card-number">23</span>
-                    <span class="card-title">Dual CTA + Quote</span>
-                    <span class="card-desc">Two hero buttons, nav CTA, quote section, refined footer</span>
+                <a href="v15/" class="version">
+                    <span class="v-num">15</span>
+                    <div class="v-info">
+                        <span class="v-title">Refined Immersive</span>
+                        <span class="v-desc">Sticky nav, breathing glow, warm amber accents, feature cards</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v24/" class="card">
-                    <span class="card-number">24</span>
-                    <span class="card-title">About Section</span>
-                    <span class="card-desc">Two-column discovery section with stats and mission link</span>
+                <a href="v16/" class="version">
+                    <span class="v-num">16</span>
+                    <div class="v-info">
+                        <span class="v-title">Product Page</span>
+                        <span class="v-desc">Polished product landing with info cards, stats bar, warm CTAs</span>
+                    </div>
+                    <span class="v-arrow">→</span>
                 </a>
-                <a href="v25/" class="card card-final">
-                    <span class="card-number">25</span>
-                    <span class="card-title">Final</span>
-                    <span class="card-desc">Product-ready: clean nav, section labels, footer links, full quote</span>
+                <a href="v17/" class="version">
+                    <span class="v-num">17</span>
+                    <div class="v-info">
+                        <span class="v-title">Full Landing</span>
+                        <span class="v-desc">Complete sections: hero, features, quote, metrics, footer</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+                <a href="v18/" class="version">
+                    <span class="v-num">18</span>
+                    <div class="v-info">
+                        <span class="v-title">Refined Landing</span>
+                        <span class="v-desc">Tighter spacing, accent lines, discovery section with stats</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Phase 3: past the event horizon -->
+        <section class="phase phase-3">
+            <div class="phase-marker">
+                <span class="phase-num">III</span>
+                <h2>Converge</h2>
+                <p>Built on v11's pulsing rings. Each version adds one clear change.</p>
+            </div>
+            <div class="version-stream">
+                <a href="v19/" class="version">
+                    <span class="v-num">19</span>
+                    <div class="v-info">
+                        <span class="v-title">+ Glow + Scroll</span>
+                        <span class="v-desc">Added rotating accretion glow and scroll section with description</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+                <a href="v20/" class="version">
+                    <span class="v-num">20</span>
+                    <div class="v-info">
+                        <span class="v-title">Hero Simplify</span>
+                        <span class="v-desc">Overline label, bigger title, stripped divider and desc for cleaner hero</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+                <a href="v21/" class="version">
+                    <span class="v-num">21</span>
+                    <div class="v-info">
+                        <span class="v-title">+ Features Grid</span>
+                        <span class="v-desc">Replaced scroll paragraph with structured 3-column features</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+                <a href="v22/" class="version">
+                    <span class="v-num">22</span>
+                    <div class="v-info">
+                        <span class="v-title">Warm + Stats + Nav</span>
+                        <span class="v-desc">Frosted glass nav, warmer amber palette, accent lines, stats bar</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+                <a href="v23/" class="version">
+                    <span class="v-num">23</span>
+                    <div class="v-info">
+                        <span class="v-title">Dual CTA + Quote</span>
+                        <span class="v-desc">Two hero buttons, nav CTA, quote section, refined footer</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+                <a href="v24/" class="version">
+                    <span class="v-num">24</span>
+                    <div class="v-info">
+                        <span class="v-title">About Section</span>
+                        <span class="v-desc">Two-column discovery section with stats and mission link</span>
+                    </div>
+                    <span class="v-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- The singularity: v25 -->
+        <section class="singularity">
+            <div class="singularity-content">
+                <span class="singularity-label">The Singularity</span>
+                <a href="v25/" class="final-card">
+                    <span class="final-num">25</span>
+                    <span class="final-title">Final Design</span>
+                    <span class="final-desc">Product-ready. Clean nav, section labels, scroll animations, footer links, full quote. The complete vision.</span>
+                    <span class="final-cta">View v25 →</span>
                 </a>
             </div>
         </section>
