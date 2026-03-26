@@ -8,9 +8,6 @@ body {
     background: #000;
     color: #fff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     overflow-x: hidden;
 }
 
@@ -44,7 +41,6 @@ nav .version {
 }
 
 main {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,22 +57,22 @@ main {
     justify-content: center;
 }
 
-/* NEW: slow-rotating accretion glow behind the rings */
+/* NEW in v19: visible warm accretion glow rotating behind the rings */
 .accretion-glow {
     position: absolute;
-    width: 65vmin;
-    height: 65vmin;
+    width: 70vmin;
+    height: 70vmin;
     border-radius: 50%;
     background: radial-gradient(
-        circle,
-        transparent 25%,
-        rgba(255, 160, 60, 0.015) 32%,
-        rgba(255, 130, 40, 0.03) 38%,
-        rgba(220, 100, 30, 0.02) 46%,
-        rgba(180, 60, 15, 0.01) 55%,
+        ellipse,
+        transparent 22%,
+        rgba(255, 160, 60, 0.03) 30%,
+        rgba(255, 130, 40, 0.06) 37%,
+        rgba(220, 100, 30, 0.04) 45%,
+        rgba(180, 60, 15, 0.02) 55%,
         transparent 65%
     );
-    animation: rotate 100s linear infinite;
+    animation: rotate 80s linear infinite;
 }
 
 @keyframes rotate {
@@ -194,6 +190,35 @@ h1 {
     border-color: rgba(255, 200, 100, 0.4);
     color: #fff;
     box-shadow: 0 0 30px rgba(255, 150, 50, 0.08);
+}
+
+/* NEW in v19: scroll section — testing content below the fold */
+.scroll-section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #111;
+    padding: 4rem 2rem;
+}
+
+.scroll-inner {
+    max-width: 500px;
+    text-align: center;
+}
+
+.scroll-inner h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    color: #ddd;
+}
+
+.scroll-inner p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.9;
+    font-weight: 300;
 }
 
 footer {
