@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    font-size: 0.75rem;
+}
+
+nav .back {
+    color: #444;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    transition: color 0.3s;
+}
+
+nav .back:hover {
+    color: #fff;
+}
+
+nav .version {
+    color: #222;
+    font-family: 'Courier New', monospace;
+}
+
+main {
+    padding: 0 3rem;
+}
+
+.type-hero {
+    padding: 6rem 0 4rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.type-line {
+    display: block;
+}
+
+.type-small {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #555;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 0;
+}
+
+.type-giant {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.type-outline {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+}
+
+.type-middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.col-left p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #777;
+    max-width: 400px;
+}
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    min-width: 120px;
+}
+
+.stat-text {
+    font-size: 0.8rem;
+    color: #555;
+    font-weight: 300;
+}
+
+.type-bottom {
+    padding: 4rem 0 6rem;
+    text-align: right;
+}
+
+.type-bottom .type-giant {
+    color: #111;
+}
+
+.type-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #444;
+    margin-top: 1rem;
+    letter-spacing: 0.05rem;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 1.5rem;
+    }
+
+    .type-giant {
+        font-size: clamp(3rem, 12vw, 8rem);
+    }
+
+    .type-middle {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+        min-width: 80px;
+    }
+}

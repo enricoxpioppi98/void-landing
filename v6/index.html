@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID — v6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="../" class="back">&larr; Gallery</a>
+        <div class="nav-center">
+            <span class="logo">VOID</span>
+            <span class="nav-label">MISSION CONTROL</span>
+        </div>
+        <span class="version">v6</span>
+    </nav>
+
+    <main class="dashboard">
+        <div class="panel panel-target">
+            <div class="panel-header">
+                <span class="panel-title">Primary Target</span>
+                <span class="status status-active">LIVE</span>
+            </div>
+            <div class="panel-body">
+                <h2>Sagittarius A*</h2>
+                <p class="coords">RA 17h 45m 40.0s | Dec −29° 0′ 28″</p>
+            </div>
+        </div>
+
+        <div class="panel panel-metrics">
+            <div class="panel-header">
+                <span class="panel-title">Telemetry</span>
+            </div>
+            <div class="panel-body metrics-grid">
+                <div class="metric-item">
+                    <span class="metric-val">4.31M</span>
+                    <span class="metric-unit">M☉</span>
+                    <span class="metric-name">Mass</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-val">26,673</span>
+                    <span class="metric-unit">ly</span>
+                    <span class="metric-name">Distance</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-val">12.4</span>
+                    <span class="metric-unit">Gm</span>
+                    <span class="metric-name">Schwarzschild r</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-val">1.3×10⁸</span>
+                    <span class="metric-unit">K</span>
+                    <span class="metric-name">Accretion Temp</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-feed">
+            <div class="panel-header">
+                <span class="panel-title">Data Feed</span>
+                <span class="status status-active">STREAMING</span>
+            </div>
+            <div class="panel-body feed-list">
+                <div class="feed-item">
+                    <span class="feed-time">00:42:17</span>
+                    <span class="feed-msg">X-ray burst detected — luminosity spike 340%</span>
+                </div>
+                <div class="feed-item">
+                    <span class="feed-time">00:41:03</span>
+                    <span class="feed-msg">Gravitational wave signature confirmed</span>
+                </div>
+                <div class="feed-item">
+                    <span class="feed-time">00:39:55</span>
+                    <span class="feed-msg">Photon ring anomaly — sector 7G</span>
+                </div>
+                <div class="feed-item">
+                    <span class="feed-time">00:38:22</span>
+                    <span class="feed-msg">Accretion disk rotation rate: nominal</span>
+                </div>
+                <div class="feed-item">
+                    <span class="feed-time">00:37:01</span>
+                    <span class="feed-msg">Radio emission baseline recalibrated</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-viz">
+            <div class="panel-header">
+                <span class="panel-title">Visualization</span>
+            </div>
+            <div class="panel-body viz-area">
+                <div class="ring ring-outer"></div>
+                <div class="ring ring-mid"></div>
+                <div class="ring ring-inner"></div>
+                <div class="core"></div>
+                <span class="viz-label">ACCRETION DISK MODEL</span>
+            </div>
+        </div>
+
+        <div class="panel panel-spectrum">
+            <div class="panel-header">
+                <span class="panel-title">Spectrum Analysis</span>
+            </div>
+            <div class="panel-body bars">
+                <div class="bar" style="height: 60%"><span>Radio</span></div>
+                <div class="bar" style="height: 85%"><span>IR</span></div>
+                <div class="bar" style="height: 40%"><span>Optical</span></div>
+                <div class="bar" style="height: 95%"><span>X-ray</span></div>
+                <div class="bar" style="height: 70%"><span>Gamma</span></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span>VOID MISSION CONTROL v6.0</span>
+        <span>UPLINK: ACTIVE</span>
+    </footer>
+</body>
+</html>

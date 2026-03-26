@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    font-size: 0.75rem;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+nav .back {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+nav .back:hover {
+    opacity: 1;
+}
+
+nav .version {
+    color: #fff;
+    opacity: 0.3;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.black-hole {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accretion-disk {
+    position: absolute;
+    width: 70vmin;
+    height: 70vmin;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        transparent 30%,
+        rgba(255, 150, 50, 0.03) 35%,
+        rgba(255, 120, 30, 0.06) 40%,
+        rgba(200, 80, 20, 0.04) 50%,
+        rgba(150, 50, 10, 0.02) 60%,
+        transparent 70%
+    );
+    animation: rotate 60s linear infinite;
+}
+
+.photon-ring {
+    position: absolute;
+    width: 35vmin;
+    height: 35vmin;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 200, 100, 0.15);
+    box-shadow:
+        0 0 40px rgba(255, 150, 50, 0.05),
+        inset 0 0 40px rgba(255, 150, 50, 0.03);
+}
+
+.event-horizon {
+    position: absolute;
+    width: 22vmin;
+    height: 22vmin;
+    border-radius: 50%;
+    background: #000;
+    border: 1px solid rgba(255, 200, 100, 0.08);
+    box-shadow: 0 0 80px 20px rgba(0, 0, 0, 0.8);
+}
+
+.singularity {
+    position: absolute;
+    width: 2vmin;
+    height: 2vmin;
+    border-radius: 50%;
+    background: #000;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: 100;
+    letter-spacing: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 40px rgba(255, 200, 100, 0.1);
+}
+
+.content p {
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.content .cta {
+    display: inline-block;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    padding: 0.6rem 2rem;
+    border: 1px solid #333;
+    transition: all 0.4s;
+}
+
+.content .cta:hover {
+    color: #fff;
+    border-color: rgba(255, 200, 100, 0.3);
+    box-shadow: 0 0 20px rgba(255, 150, 50, 0.1);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.scroll-hint span {
+    font-size: 0.6rem;
+    color: #444;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+.arrow {
+    color: #444;
+    margin-top: 0.5rem;
+    animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+.deep {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #000, #050505);
+}
+
+.deep-2 {
+    background: linear-gradient(to bottom, #050505, #000);
+}
+
+.deep-content {
+    max-width: 500px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.deep-content h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    color: #ddd;
+}
+
+.deep-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+@media (max-width: 600px) {
+    .content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1rem;
+    }
+}
