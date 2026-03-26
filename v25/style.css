@@ -126,52 +126,51 @@ nav {
     perspective: 800px;
 }
 
-/* Warm ambient glow behind everything */
+/* Warm ambient glow behind everything — BRIGHT */
 .bh-glow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150%;
-    height: 150%;
+    width: 180%;
+    height: 180%;
     border-radius: 50%;
     background: radial-gradient(
         circle,
-        rgba(255, 140, 40, 0.08) 0%,
-        rgba(255, 100, 20, 0.05) 20%,
-        rgba(200, 60, 10, 0.03) 35%,
-        rgba(150, 40, 5, 0.015) 50%,
-        transparent 65%
+        rgba(255, 160, 60, 0.35) 0%,
+        rgba(255, 120, 30, 0.2) 15%,
+        rgba(220, 80, 15, 0.12) 30%,
+        rgba(180, 50, 10, 0.06) 45%,
+        transparent 60%
     );
     animation: glow-pulse 7s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.75; }
+    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.8; }
 }
 
 /* ============================================
    GRAVITATIONAL LENSING ARC
-   The bright arc of light visible above the black hole
-   in the M87 image — light bent over the top
+   Bright arc of light bent over the top of the hole
    ============================================ */
 
 .lensing-arc {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60%;
-    height: 60%;
+    width: 58%;
+    height: 58%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1.5px solid transparent;
-    border-top-color: rgba(255, 200, 100, 0.12);
-    border-left-color: rgba(255, 180, 80, 0.06);
-    border-right-color: rgba(255, 180, 80, 0.06);
+    border: 2px solid transparent;
+    border-top-color: rgba(255, 210, 120, 0.5);
+    border-left-color: rgba(255, 180, 80, 0.2);
+    border-right-color: rgba(255, 180, 80, 0.2);
     box-shadow:
-        0 -8px 25px rgba(255, 170, 60, 0.06),
-        0 -4px 15px rgba(255, 200, 100, 0.04);
+        0 -12px 40px rgba(255, 180, 70, 0.25),
+        0 -6px 20px rgba(255, 210, 120, 0.15);
     animation: lensing-rotate 60s linear infinite reverse;
     z-index: 3;
 }
@@ -212,62 +211,65 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-/* Outermost ring — faint, wide */
+/* Outermost ring — cool reddish, wide */
 .r1 {
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(255, 140, 40, 0.08);
+    border: 2px solid rgba(200, 80, 20, 0.3);
     box-shadow:
-        0 0 20px 4px rgba(255, 120, 30, 0.03),
-        inset 0 0 15px 3px rgba(255, 120, 30, 0.02);
+        0 0 30px 8px rgba(200, 60, 10, 0.15),
+        inset 0 0 20px 5px rgba(200, 60, 10, 0.08);
 }
 
 .r2 {
     width: 88%;
     height: 88%;
-    border: 1.5px solid rgba(255, 160, 50, 0.12);
+    border: 2.5px solid rgba(255, 120, 30, 0.4);
     box-shadow:
-        0 0 20px 5px rgba(255, 140, 40, 0.05),
-        inset 0 0 15px 3px rgba(255, 140, 40, 0.03);
+        0 0 30px 8px rgba(255, 100, 20, 0.2),
+        inset 0 0 20px 5px rgba(255, 100, 20, 0.1);
 }
 
+/* Getting hotter — orange */
 .r3 {
     width: 76%;
     height: 76%;
-    border: 2px solid rgba(255, 180, 70, 0.18);
+    border: 3px solid rgba(255, 160, 50, 0.55);
     box-shadow:
-        0 0 25px 6px rgba(255, 150, 50, 0.07),
-        inset 0 0 20px 4px rgba(255, 150, 50, 0.04);
+        0 0 35px 10px rgba(255, 140, 30, 0.25),
+        0 0 70px 20px rgba(255, 120, 20, 0.1),
+        inset 0 0 25px 6px rgba(255, 140, 30, 0.12);
 }
 
-/* Brightest ring — hottest region closest to the hole */
+/* Brightest ring — hottest, yellow-white core of the disk */
 .r4 {
     width: 66%;
     height: 66%;
-    border: 2.5px solid rgba(255, 200, 100, 0.25);
+    border: 3.5px solid rgba(255, 210, 120, 0.7);
     box-shadow:
-        0 0 30px 8px rgba(255, 170, 60, 0.1),
-        0 0 60px 15px rgba(255, 140, 40, 0.05),
-        inset 0 0 25px 5px rgba(255, 170, 60, 0.06);
+        0 0 40px 12px rgba(255, 180, 60, 0.35),
+        0 0 80px 25px rgba(255, 150, 40, 0.15),
+        inset 0 0 30px 8px rgba(255, 200, 100, 0.2);
 }
 
 .r5 {
     width: 58%;
     height: 58%;
-    border: 2px solid rgba(255, 220, 140, 0.2);
+    border: 3px solid rgba(255, 230, 160, 0.6);
     box-shadow:
-        0 0 25px 6px rgba(255, 180, 80, 0.08),
-        inset 0 0 20px 4px rgba(255, 180, 80, 0.04);
+        0 0 35px 10px rgba(255, 200, 100, 0.3),
+        0 0 60px 15px rgba(255, 170, 60, 0.12),
+        inset 0 0 25px 6px rgba(255, 210, 130, 0.15);
 }
 
-/* Innermost visible ring — fading into the shadow */
+/* Innermost visible ring — white-hot, fading into shadow */
 .r6 {
     width: 52%;
     height: 52%;
-    border: 1px solid rgba(255, 200, 120, 0.1);
+    border: 2px solid rgba(255, 240, 200, 0.45);
     box-shadow:
-        0 0 15px 4px rgba(255, 160, 60, 0.04),
-        inset 0 0 10px 2px rgba(255, 160, 60, 0.03);
+        0 0 25px 8px rgba(255, 220, 150, 0.2),
+        inset 0 0 15px 4px rgba(255, 220, 150, 0.1);
 }
 
 /* ============================================
@@ -302,21 +304,21 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 32%;
-    height: 32%;
+    width: 34%;
+    height: 34%;
     border-radius: 50%;
-    border: 1px solid rgba(255, 220, 150, 0.15);
+    border: 1.5px solid rgba(255, 230, 170, 0.5);
     z-index: 3;
     box-shadow:
-        0 0 10px 2px rgba(255, 200, 100, 0.06),
-        0 0 25px 5px rgba(255, 160, 60, 0.03),
-        inset 0 0 10px 2px rgba(255, 200, 100, 0.04);
+        0 0 15px 3px rgba(255, 210, 120, 0.2),
+        0 0 35px 8px rgba(255, 170, 60, 0.1),
+        inset 0 0 12px 3px rgba(255, 210, 120, 0.12);
     animation: photon-pulse 5s ease-in-out infinite;
 }
 
 @keyframes photon-pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+    50% { opacity: 0.75; }
 }
 
 /* ============================================
