@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.hero {
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 200;
+    letter-spacing: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #444;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.phase {
+    padding: 4rem 0;
+    border-bottom: 1px solid #111;
+}
+
+.phase:last-child {
+    border-bottom: none;
+}
+
+.phase-header {
+    margin-bottom: 2.5rem;
+}
+
+.phase-header h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.phase-header p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: #050505;
+    border: 1px solid #151515;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    background: #0a0a0a;
+    border-color: #333;
+}
+
+.card-number {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #222;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-number {
+    color: #444;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05rem;
+}
+
+.card-desc {
+    font-size: 0.75rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.card-final {
+    border-color: #2a2a2a;
+}
+
+.card-final:hover {
+    border-color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    font-size: 0.7rem;
+    color: #333;
+    letter-spacing: 0.1rem;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
