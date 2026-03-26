@@ -5,411 +5,203 @@
 }
 
 body {
-    background: #000;
-    color: #e0e0e0;
+    background: #fafafa;
+    color: #222;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================
-   FIXED BLACK HOLE BACKGROUND
-   ============================================ */
-
-.black-hole-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 0;
-}
-
-.accretion-glow {
-    position: absolute;
-    width: 70vmin;
-    height: 70vmin;
-    border-radius: 50%;
-    background: radial-gradient(
-        ellipse,
-        transparent 20%,
-        rgba(255, 170, 70, 0.05) 28%,
-        rgba(255, 140, 50, 0.1) 36%,
-        rgba(230, 110, 35, 0.06) 44%,
-        rgba(190, 70, 20, 0.03) 54%,
-        transparent 65%
-    );
-    animation: rotate 80s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid;
-    animation: pulse 10s ease-in-out infinite;
-}
-
-.ring-1 { width: 60vmin; height: 60vmin; border-color: rgba(255, 200, 120, 0.06); animation-delay: 0s; }
-.ring-2 { width: 45vmin; height: 45vmin; border-color: rgba(255, 190, 100, 0.09); animation-delay: 2s; }
-.ring-3 { width: 32vmin; height: 32vmin; border-color: rgba(255, 180, 90, 0.12); animation-delay: 4s; }
-.ring-4 { width: 22vmin; height: 22vmin; border-color: rgba(255, 170, 80, 0.15); animation-delay: 6s; }
-.ring-5 { width: 14vmin; height: 14vmin; border-color: rgba(255, 170, 80, 0.18); animation-delay: 8s; }
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.65; transform: scale(1.025); }
-}
-
-.event-horizon {
-    position: absolute;
-    width: 8vmin;
-    height: 8vmin;
-    border-radius: 50%;
-    background: #000;
-    box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.95), 0 0 120px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* ============================================
-   HERO — full viewport, you see the black hole
-   ============================================ */
+/* Hero */
 
 .hero {
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
+    padding: 8rem 2rem 5rem;
+    border-bottom: 1px solid #eee;
 }
 
-.hero-content {
-    padding: 2rem;
+.overline {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 2rem;
+    font-family: 'Courier New', monospace;
 }
 
 .hero h1 {
-    font-size: 5rem;
-    font-weight: 100;
-    letter-spacing: 2rem;
-    color: #fff;
+    font-size: 4.5rem;
+    font-weight: 200;
+    letter-spacing: 1.5rem;
+    color: #111;
     margin-bottom: 1rem;
-    text-shadow: 0 0 80px rgba(255, 200, 100, 0.08);
 }
 
 .tagline {
-    font-size: 0.9rem;
-    color: #666;
-    letter-spacing: 0.15rem;
-    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
 }
 
-.hero-divider {
+.divider {
     width: 30px;
     height: 1px;
-    background: rgba(255, 200, 100, 0.25);
-    margin: 0 auto 2rem;
+    background: #ddd;
+    margin: 0 auto 1.5rem;
 }
 
 .subtitle {
     font-size: 0.8rem;
-    color: #555;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 0.05rem;
-    margin-bottom: 3rem;
+    color: #aaa;
+    font-weight: 300;
+    font-style: italic;
 }
 
-.scroll-arrow {
-    font-size: 1.2rem;
-    color: rgba(255, 200, 100, 0.4);
-    animation: bob 2s ease-in-out infinite;
-}
-
-@keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-}
-
-/* ============================================
-   MAIN — content over the black hole
-   ============================================ */
+/* Main */
 
 main {
-    position: relative;
-    z-index: 2;
-}
-
-/* ============================================
-   PHASES — solid dark backgrounds so text is readable
-   The black hole peeks through between sections
-   ============================================ */
-
-.phase {
-    padding: 4rem 0;
-    max-width: 100%;
-}
-
-.phase-marker {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 3rem 2rem;
-    /* Transparent — black hole visible here */
-}
-
-.phase-num {
-    display: block;
-    font-size: 3rem;
-    font-weight: 100;
-    color: rgba(255, 200, 100, 0.2);
-    letter-spacing: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.phase-marker h2 {
-    font-size: 1.5rem;
-    font-weight: 200;
-    color: #fff;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
-
-.phase-marker p {
-    font-size: 0.75rem;
-    color: #666;
-    font-family: 'Courier New', monospace;
-    max-width: 450px;
-    margin: 0 auto;
-}
-
-/* ============================================
-   VERSION ROWS — solid background for readability
-   ============================================ */
-
-.version-stream {
-    display: flex;
-    flex-direction: column;
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
+/* Phases */
+
+.phase {
+    padding: 4rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.phase:last-child {
+    border-bottom: none;
+}
+
+.phase-header {
+    margin-bottom: 2rem;
+}
+
+.phase-label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #bbb;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 0.4rem;
+}
+
+.phase-header h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #222;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.3rem;
+}
+
+.phase-header p {
+    font-size: 0.78rem;
+    color: #999;
+    font-weight: 300;
+}
+
+/* Version list */
+
+.version-list {
+    display: flex;
+    flex-direction: column;
+}
+
 .version {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.2rem 1.5rem;
+    align-items: baseline;
+    gap: 1.2rem;
+    padding: 0.85rem 0;
     text-decoration: none;
     color: inherit;
-    background: rgba(5, 5, 8, 0.92);
-    border-bottom: 1px solid rgba(255, 200, 100, 0.04);
-    transition: all 0.4s ease;
+    border-bottom: 1px solid #f0f0f0;
+    transition: padding-left 0.3s ease;
 }
 
 .version:first-child {
-    border-top: 1px solid rgba(255, 200, 100, 0.04);
+    border-top: 1px solid #f0f0f0;
 }
 
 .version:hover {
-    background: rgba(20, 15, 8, 0.95);
-    padding-left: 2rem;
+    padding-left: 0.5rem;
 }
 
 .v-num {
-    font-size: 1.6rem;
-    font-weight: 100;
-    color: rgba(255, 200, 100, 0.2);
-    min-width: 45px;
+    font-size: 0.7rem;
     font-family: 'Courier New', monospace;
-    transition: color 0.4s;
+    color: #ccc;
+    min-width: 22px;
+    transition: color 0.3s;
 }
 
 .version:hover .v-num {
-    color: rgba(255, 200, 100, 0.5);
-}
-
-.v-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+    color: #888;
 }
 
 .v-title {
     font-size: 0.85rem;
-    color: #ccc;
+    color: #444;
     font-weight: 400;
     transition: color 0.3s;
 }
 
 .version:hover .v-title {
-    color: #fff;
+    color: #111;
 }
 
 .v-desc {
-    font-size: 0.68rem;
-    color: #555;
-    font-family: 'Courier New', monospace;
-}
-
-.v-arrow {
-    font-size: 1rem;
-    color: rgba(255, 200, 100, 0);
-    transition: color 0.3s, transform 0.3s;
-}
-
-.version:hover .v-arrow {
-    color: rgba(255, 200, 100, 0.5);
-    transform: translateX(4px);
-}
-
-/* ============================================
-   SPACE BETWEEN PHASES — black hole visible
-   ============================================ */
-
-.phase-1 {
-    padding-top: 2rem;
-}
-
-.phase-2 {
-    margin-top: 6rem;
-}
-
-.phase-3 {
-    margin-top: 6rem;
-}
-
-/* ============================================
-   THE SINGULARITY — v25
-   ============================================ */
-
-.singularity {
-    padding: 10rem 2rem 8rem;
-    text-align: center;
-}
-
-.singularity-label {
-    display: block;
-    font-size: 0.6rem;
-    letter-spacing: 0.4rem;
-    text-transform: uppercase;
-    color: rgba(255, 200, 100, 0.3);
-    font-family: 'Courier New', monospace;
-    margin-bottom: 2.5rem;
-}
-
-.final-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 3rem 2.5rem;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid rgba(255, 200, 100, 0.12);
-    background: rgba(5, 5, 8, 0.9);
-    transition: all 0.5s ease;
-}
-
-.final-card:hover {
-    border-color: rgba(255, 200, 100, 0.35);
-    background: rgba(15, 12, 5, 0.95);
-    box-shadow: 0 0 80px rgba(255, 150, 50, 0.06);
-    transform: scale(1.02);
-}
-
-.final-num {
-    font-size: 4rem;
-    font-weight: 100;
-    color: rgba(255, 200, 100, 0.25);
-    font-family: 'Courier New', monospace;
-    line-height: 1;
-}
-
-.final-card:hover .final-num {
-    color: rgba(255, 200, 100, 0.6);
-}
-
-.final-title {
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: #fff;
-    letter-spacing: 0.15rem;
-}
-
-.final-desc {
-    font-size: 0.75rem;
-    color: #666;
-    line-height: 1.7;
-    max-width: 350px;
-}
-
-.final-cta {
+    flex: 1;
     font-size: 0.7rem;
-    color: rgba(255, 200, 100, 0.5);
-    letter-spacing: 0.1rem;
-    margin-top: 0.5rem;
-    transition: color 0.3s;
+    color: #bbb;
+    text-align: right;
+    font-weight: 300;
 }
 
-.final-card:hover .final-cta {
-    color: rgba(255, 200, 100, 1);
+/* Final version highlight */
+
+.version-final {
+    border-bottom: 1px solid #ddd;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+.version-final .v-num {
+    color: #888;
+}
+
+.version-final .v-title {
+    color: #111;
+    font-weight: 500;
+}
+
+/* Footer */
 
 footer {
-    position: relative;
-    z-index: 2;
     text-align: center;
     padding: 4rem 2rem;
-    font-size: 0.6rem;
-    color: #333;
-    letter-spacing: 0.1rem;
+    font-size: 0.65rem;
+    color: #ccc;
+    letter-spacing: 0.08rem;
     font-family: 'Courier New', monospace;
-    background: rgba(0, 0, 0, 0.9);
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* Responsive */
 
 @media (max-width: 600px) {
     .hero h1 {
         font-size: 2.5rem;
-        letter-spacing: 1rem;
-    }
-
-    .version {
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    .v-num {
-        font-size: 1.2rem;
-        min-width: 35px;
+        letter-spacing: 0.8rem;
     }
 
     .v-desc {
         display: none;
     }
 
-    .phase-num {
-        font-size: 2rem;
-    }
-
-    .singularity {
-        padding: 6rem 1.5rem 5rem;
+    .version {
+        gap: 0.8rem;
     }
 }
