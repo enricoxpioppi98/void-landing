@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #d4d0c8;
+    font-family: 'Playfair Display', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem;
+    font-size: 0.7rem;
+    z-index: 100;
+    font-family: 'Courier New', monospace;
+    mix-blend-mode: difference;
+}
+
+nav .back {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+nav .back:hover {
+    opacity: 1;
+}
+
+nav .version {
+    color: #fff;
+    opacity: 0.3;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.black-hole {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accretion-disk {
+    position: absolute;
+    width: 80vmin;
+    height: 80vmin;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        transparent 28%,
+        rgba(255, 160, 60, 0.02) 33%,
+        rgba(255, 130, 40, 0.05) 38%,
+        rgba(220, 100, 30, 0.03) 48%,
+        rgba(180, 60, 15, 0.02) 58%,
+        transparent 68%
+    );
+    animation: rotate 80s linear infinite;
+}
+
+.photon-ring {
+    position: absolute;
+    width: 38vmin;
+    height: 38vmin;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 200, 100, 0.1);
+    box-shadow: 0 0 60px rgba(255, 150, 50, 0.03);
+}
+
+.event-horizon {
+    position: absolute;
+    width: 24vmin;
+    height: 24vmin;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.overline {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    color: rgba(255, 200, 100, 0.4);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.deck {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.9;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    gap: 3rem;
+    border-top: 1px solid #111;
+}
+
+.feature {
+    padding: 1.5rem 0;
+}
+
+.feature-num {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: #333;
+    letter-spacing: 0.1rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 0.6rem;
+}
+
+.feature p {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.7;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid #0a0a0a;
+}
+
+footer p {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: #333;
+    letter-spacing: 0.15rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
