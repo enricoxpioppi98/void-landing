@@ -266,14 +266,44 @@ nav {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    animation: slow-rotate 100s linear infinite;
     mask-image: radial-gradient(circle, white 35%, transparent 65%);
     -webkit-mask-image: radial-gradient(circle, white 35%, transparent 65%);
 }
 
-@keyframes slow-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Spinning accretion disk — ring that rotates around the fixed image */
+.accretion-disk {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52vmin;
+    height: 52vmin;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 180, 80, 0.06);
+    box-shadow:
+        0 0 30px 8px rgba(255, 140, 40, 0.04),
+        0 0 60px 15px rgba(255, 100, 20, 0.02),
+        inset 0 0 30px 8px rgba(255, 140, 40, 0.03);
+    background: conic-gradient(
+        from 0deg,
+        rgba(255, 180, 80, 0.0) 0deg,
+        rgba(255, 160, 60, 0.08) 40deg,
+        rgba(255, 140, 40, 0.15) 80deg,
+        rgba(255, 180, 80, 0.04) 130deg,
+        rgba(255, 200, 100, 0.0) 180deg,
+        rgba(255, 150, 50, 0.06) 220deg,
+        rgba(255, 130, 30, 0.12) 280deg,
+        rgba(255, 180, 80, 0.03) 330deg,
+        rgba(255, 180, 80, 0.0) 360deg
+    );
+    mask-image: radial-gradient(circle, transparent 38%, white 42%, white 48%, transparent 52%);
+    -webkit-mask-image: radial-gradient(circle, transparent 38%, white 42%, white 48%, transparent 52%);
+    animation: disk-spin 30s linear infinite;
+}
+
+@keyframes disk-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* ============================================
