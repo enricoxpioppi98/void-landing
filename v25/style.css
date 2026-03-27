@@ -70,7 +70,7 @@ nav {
 }
 
 /* ============================================
-   SPACE SCENE — fixed behind everything
+   SPACE SCENE
    ============================================ */
 
 .space-scene {
@@ -83,10 +83,7 @@ nav {
     overflow: hidden;
 }
 
-/* ============================================
-   STARS
-   ============================================ */
-
+/* Stars */
 .star {
     position: absolute;
     width: 2px;
@@ -103,7 +100,7 @@ nav {
 }
 
 .star:nth-child(odd) { animation-duration: 5s; }
-.star:nth-child(3n) { animation-duration: 6s; background: rgba(255, 220, 180, 0.8); }
+.star:nth-child(3n) { animation-duration: 6s; background: rgba(200, 210, 255, 0.8); }
 .star:nth-child(4n) { animation-delay: 1.5s; }
 .star:nth-child(5n) { animation-delay: 3s; }
 
@@ -113,97 +110,60 @@ nav {
 }
 
 /* ============================================
-   3D BLACK HOLE SCENE
+   GARGANTUA — Interstellar-style black hole
    ============================================ */
 
-.black-hole-scene {
+.gargantua {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50vmin;
     height: 50vmin;
-    perspective: 800px;
 }
 
-/* Warm ambient glow behind everything — BRIGHT */
+/* Soft ambient glow — cool white/blue */
 .bh-glow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 180%;
-    height: 180%;
+    width: 200%;
+    height: 200%;
     border-radius: 50%;
     background: radial-gradient(
         circle,
-        rgba(255, 160, 60, 0.35) 0%,
-        rgba(255, 120, 30, 0.2) 15%,
-        rgba(220, 80, 15, 0.12) 30%,
-        rgba(180, 50, 10, 0.06) 45%,
-        transparent 60%
+        rgba(180, 200, 255, 0.08) 0%,
+        rgba(150, 170, 230, 0.04) 20%,
+        rgba(120, 140, 200, 0.02) 35%,
+        transparent 50%
     );
-    animation: glow-pulse 7s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.8; }
 }
 
 /* ============================================
-   GRAVITATIONAL LENSING ARC
-   Bright arc of light bent over the top of the hole
-   ============================================ */
-
-.lensing-arc {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 58%;
-    height: 58%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top-color: rgba(255, 210, 120, 0.5);
-    border-left-color: rgba(255, 180, 80, 0.2);
-    border-right-color: rgba(255, 180, 80, 0.2);
-    box-shadow:
-        0 -12px 40px rgba(255, 180, 70, 0.25),
-        0 -6px 20px rgba(255, 210, 120, 0.15);
-    animation: lensing-rotate 60s linear infinite reverse;
-    z-index: 3;
-}
-
-@keyframes lensing-rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* ============================================
-   3D ACCRETION DISK
-   Tilted via rotateX to appear as an ellipse,
-   spins via rotateZ while maintaining tilt
+   ACCRETION DISK — horizontal, tilted sharply
+   to appear as a thin bright line across the hole.
+   rotateX(85deg) makes the circle nearly edge-on.
    ============================================ */
 
 .accretion-disk {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
+    width: 180%;
+    height: 180%;
     transform-style: preserve-3d;
-    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg);
-    animation: disk-spin 35s linear infinite;
+    transform: translate(-50%, -50%) rotateX(85deg);
+    animation: disk-spin 50s linear infinite;
     z-index: 2;
 }
 
 @keyframes disk-spin {
-    from { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg); }
-    to { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg); }
+    from { transform: translate(-50%, -50%) rotateX(85deg) rotateZ(0deg); }
+    to { transform: translate(-50%, -50%) rotateX(85deg) rotateZ(360deg); }
 }
 
-.disk-ring {
+.disk-band {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -211,157 +171,137 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-/*
-   Realistic accretion disk:
-   - Filled bands (not just borders) using radial-gradient
-   - Asymmetric brightness via conic-gradient overlay (Doppler beaming)
-   - Color gradient: deep red (outer) → orange → yellow-white (inner)
-   - Each ring is a thick filled band
-*/
-
-/* Outer disk — deep red, wide, faint */
-.r1 {
+/* Outer disk — faint, wide, cool blue-white */
+.disk-outer {
     width: 100%;
     height: 100%;
     background: radial-gradient(
         circle,
-        transparent 42%,
-        rgba(150, 40, 10, 0.25) 44%,
-        rgba(180, 60, 15, 0.35) 48%,
-        rgba(150, 40, 10, 0.2) 52%,
-        transparent 54%
+        transparent 30%,
+        rgba(180, 200, 255, 0.05) 35%,
+        rgba(200, 215, 255, 0.12) 42%,
+        rgba(180, 200, 255, 0.06) 50%,
+        transparent 55%
     );
-    box-shadow: 0 0 40px 10px rgba(180, 50, 10, 0.1);
 }
 
-/* Mid-outer — orange-red, Doppler brightened on one side */
-.r2 {
+/* Mid disk — brighter */
+.disk-mid {
     width: 100%;
     height: 100%;
     background: radial-gradient(
         circle,
-        transparent 48%,
-        rgba(220, 90, 20, 0.3) 50%,
-        rgba(255, 120, 30, 0.5) 53%,
-        rgba(220, 90, 20, 0.25) 56%,
-        transparent 58%
+        transparent 34%,
+        rgba(220, 230, 255, 0.1) 38%,
+        rgba(240, 245, 255, 0.25) 43%,
+        rgba(220, 230, 255, 0.12) 48%,
+        transparent 52%
     );
-    box-shadow: 0 0 50px 12px rgba(255, 100, 20, 0.12);
 }
 
-/* Hot mid ring — bright orange */
-.r3 {
+/* Inner disk — bright white */
+.disk-inner {
     width: 100%;
     height: 100%;
     background: radial-gradient(
         circle,
-        transparent 54%,
-        rgba(255, 150, 40, 0.4) 56%,
-        rgba(255, 180, 60, 0.65) 59%,
-        rgba(255, 150, 40, 0.35) 62%,
-        transparent 64%
+        transparent 37%,
+        rgba(240, 245, 255, 0.15) 40%,
+        rgba(255, 255, 255, 0.45) 43.5%,
+        rgba(240, 245, 255, 0.2) 47%,
+        transparent 50%
     );
-    box-shadow: 0 0 60px 15px rgba(255, 140, 30, 0.15);
+    filter: blur(1px);
 }
 
-/* Hottest ring — yellow-white, closest to the shadow */
-.r4 {
+/* Hottest inner edge — intense white glow */
+.disk-hot {
     width: 100%;
     height: 100%;
     background: radial-gradient(
         circle,
-        transparent 60%,
-        rgba(255, 200, 80, 0.45) 62%,
-        rgba(255, 230, 140, 0.75) 65%,
-        rgba(255, 210, 100, 0.5) 68%,
-        transparent 70%
+        transparent 40%,
+        rgba(255, 255, 255, 0.2) 42%,
+        rgba(255, 255, 255, 0.6) 43.5%,
+        rgba(255, 255, 255, 0.2) 45%,
+        transparent 47%
     );
-    box-shadow:
-        0 0 50px 15px rgba(255, 190, 70, 0.2),
-        0 0 100px 30px rgba(255, 150, 40, 0.08);
-}
-
-/* Innermost glow — white-hot, thin, fading into the shadow */
-.r5 {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        circle,
-        transparent 66%,
-        rgba(255, 240, 180, 0.3) 68%,
-        rgba(255, 250, 220, 0.5) 70%,
-        rgba(255, 240, 180, 0.2) 72%,
-        transparent 74%
-    );
-}
-
-/* Doppler beaming — one side of the disk is brighter
-   (matter moving toward the observer is blue-shifted/brighter) */
-.r6 {
-    width: 100%;
-    height: 100%;
-    background: conic-gradient(
-        from 180deg,
-        transparent 0deg,
-        rgba(255, 200, 100, 0.15) 60deg,
-        rgba(255, 230, 160, 0.35) 120deg,
-        rgba(255, 250, 200, 0.45) 170deg,
-        rgba(255, 230, 160, 0.35) 220deg,
-        rgba(255, 200, 100, 0.15) 280deg,
-        transparent 360deg
-    );
-    mask-image: radial-gradient(circle, transparent 42%, black 44%, black 74%, transparent 76%);
-    -webkit-mask-image: radial-gradient(circle, transparent 42%, black 44%, black 74%, transparent 76%);
-    filter: blur(4px);
+    filter: blur(2px);
 }
 
 /* ============================================
-   EVENT HORIZON — the absolute dark center
-   Sits on top of the disk to obscure the center
+   EINSTEIN RING — gravitational lensing
+   Light from the disk bent over the top and under
+   the bottom of the black hole, creating a bright
+   vertical ring/halo around the shadow.
    ============================================ */
 
-.event-horizon {
+.einstein-ring {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 28%;
-    height: 28%;
+    width: 56%;
+    height: 56%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 0 8px 2px rgba(200, 220, 255, 0.3),
+        0 0 20px 4px rgba(180, 200, 255, 0.15),
+        0 0 40px 8px rgba(160, 180, 255, 0.06),
+        inset 0 0 8px 2px rgba(200, 220, 255, 0.15);
+    z-index: 1;
+}
+
+/* Extra glow on the Einstein ring */
+.einstein-ring-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58%;
+    height: 58%;
+    border-radius: 50%;
+    box-shadow:
+        0 0 30px 10px rgba(200, 215, 255, 0.08),
+        0 0 60px 20px rgba(180, 200, 255, 0.04);
+    z-index: 1;
+}
+
+/* ============================================
+   THE SHADOW — pure black sphere
+   ============================================ */
+
+.shadow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
     background: #000;
-    z-index: 4;
+    z-index: 3;
     box-shadow:
-        0 0 30px 10px rgba(0, 0, 0, 1),
-        0 0 60px 25px rgba(0, 0, 0, 0.9),
-        0 0 100px 40px rgba(0, 0, 0, 0.6),
-        0 0 150px 60px rgba(0, 0, 0, 0.3);
+        0 0 20px 8px rgba(0, 0, 0, 1),
+        0 0 50px 20px rgba(0, 0, 0, 0.95),
+        0 0 80px 35px rgba(0, 0, 0, 0.7),
+        0 0 120px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* ============================================
-   PHOTON RING — bright thin ring at the edge
-   of the event horizon shadow
-   ============================================ */
-
-.photon-ring {
+/* Bright edge where light just barely escapes */
+.shadow-edge {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 34%;
-    height: 34%;
+    width: 52%;
+    height: 52%;
     border-radius: 50%;
-    border: 1.5px solid rgba(255, 230, 170, 0.5);
-    z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 4;
     box-shadow:
-        0 0 15px 3px rgba(255, 210, 120, 0.2),
-        0 0 35px 8px rgba(255, 170, 60, 0.1),
-        inset 0 0 12px 3px rgba(255, 210, 120, 0.12);
-    animation: photon-pulse 5s ease-in-out infinite;
-}
-
-@keyframes photon-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.75; }
+        inset 0 0 10px 3px rgba(200, 215, 255, 0.06);
 }
 
 /* ============================================
@@ -389,7 +329,7 @@ main {
     font-size: 0.6rem;
     letter-spacing: 0.35rem;
     text-transform: uppercase;
-    color: rgba(255, 200, 100, 0.4);
+    color: rgba(180, 200, 255, 0.4);
     margin-bottom: 1.5rem;
     font-family: 'Courier New', monospace;
 }
@@ -418,9 +358,9 @@ h1 {
 
 .cta-primary {
     padding: 0.75rem 2.2rem;
-    background: rgba(255, 200, 100, 0.08);
-    border: 1px solid rgba(255, 190, 100, 0.2);
-    color: rgba(255, 210, 140, 0.8);
+    background: rgba(180, 200, 255, 0.06);
+    border: 1px solid rgba(180, 200, 255, 0.2);
+    color: rgba(200, 220, 255, 0.8);
     text-decoration: none;
     font-size: 0.7rem;
     letter-spacing: 0.15rem;
@@ -430,10 +370,10 @@ h1 {
 }
 
 .cta-primary:hover {
-    background: rgba(255, 200, 100, 0.15);
-    border-color: rgba(255, 190, 100, 0.5);
-    color: rgba(255, 210, 140, 1);
-    box-shadow: 0 0 30px rgba(255, 150, 50, 0.08);
+    background: rgba(180, 200, 255, 0.12);
+    border-color: rgba(180, 200, 255, 0.45);
+    color: rgba(220, 235, 255, 1);
+    box-shadow: 0 0 30px rgba(180, 200, 255, 0.08);
 }
 
 .cta-ghost {
@@ -454,7 +394,7 @@ h1 {
 }
 
 /* ============================================
-   BELOW-FOLD SECTIONS
+   BELOW-FOLD SECTIONS — semi-transparent
    ============================================ */
 
 .features-section {
@@ -463,7 +403,7 @@ h1 {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 200, 100, 0.08);
+    border-top: 1px solid rgba(180, 200, 255, 0.06);
     padding: 5rem 2rem;
 }
 
@@ -472,7 +412,7 @@ h1 {
     font-size: 0.55rem;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
-    color: #333;
+    color: #444;
     text-align: center;
     margin-bottom: 3rem;
 }
@@ -488,7 +428,7 @@ h1 {
 .feature-accent {
     width: 28px;
     height: 2px;
-    background: rgba(255, 190, 100, 0.2);
+    background: rgba(180, 200, 255, 0.2);
     margin-bottom: 1.2rem;
 }
 
@@ -496,7 +436,7 @@ h1 {
     display: block;
     font-family: 'Courier New', monospace;
     font-size: 0.6rem;
-    color: rgba(255, 200, 100, 0.3);
+    color: rgba(180, 200, 255, 0.3);
     letter-spacing: 0.1rem;
     margin-bottom: 0.8rem;
 }
@@ -524,7 +464,7 @@ h1 {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 200, 100, 0.08);
+    border-top: 1px solid rgba(180, 200, 255, 0.06);
     padding: 5rem 2rem;
 }
 
@@ -554,12 +494,12 @@ h1 {
 
 .about-link {
     font-size: 0.75rem;
-    color: rgba(255, 200, 100, 0.5);
+    color: rgba(180, 200, 255, 0.5);
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.about-link:hover { color: rgba(255, 200, 100, 0.9); }
+.about-link:hover { color: rgba(180, 200, 255, 0.9); }
 
 .about-stats {
     display: grid;
@@ -588,11 +528,12 @@ h1 {
 .quote-section {
     position: relative;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     text-align: center;
     padding: 4.5rem 2rem;
-    border-top: 1px solid rgba(255, 200, 100, 0.05);
+    border-top: 1px solid rgba(180, 200, 255, 0.06);
 }
 
 .quote-section blockquote,
@@ -624,7 +565,7 @@ footer {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 2rem 2.5rem;
-    border-top: 1px solid rgba(255, 200, 100, 0.05);
+    border-top: 1px solid rgba(180, 200, 255, 0.06);
 }
 
 .footer-inner {
@@ -670,5 +611,5 @@ footer {
     .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-stats { grid-template-columns: repeat(3, 1fr); }
     .footer-links { display: none; }
-    .black-hole-scene { width: 70vmin; height: 70vmin; }
+    .gargantua { width: 70vmin; height: 70vmin; }
 }
