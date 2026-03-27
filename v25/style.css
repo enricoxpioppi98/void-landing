@@ -211,65 +211,108 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-/* Outermost ring — cool reddish, wide */
+/*
+   Realistic accretion disk:
+   - Filled bands (not just borders) using radial-gradient
+   - Asymmetric brightness via conic-gradient overlay (Doppler beaming)
+   - Color gradient: deep red (outer) → orange → yellow-white (inner)
+   - Each ring is a thick filled band
+*/
+
+/* Outer disk — deep red, wide, faint */
 .r1 {
     width: 100%;
     height: 100%;
-    border: 2px solid rgba(200, 80, 20, 0.3);
-    box-shadow:
-        0 0 30px 8px rgba(200, 60, 10, 0.15),
-        inset 0 0 20px 5px rgba(200, 60, 10, 0.08);
+    background: radial-gradient(
+        circle,
+        transparent 42%,
+        rgba(150, 40, 10, 0.25) 44%,
+        rgba(180, 60, 15, 0.35) 48%,
+        rgba(150, 40, 10, 0.2) 52%,
+        transparent 54%
+    );
+    box-shadow: 0 0 40px 10px rgba(180, 50, 10, 0.1);
 }
 
+/* Mid-outer — orange-red, Doppler brightened on one side */
 .r2 {
-    width: 88%;
-    height: 88%;
-    border: 2.5px solid rgba(255, 120, 30, 0.4);
-    box-shadow:
-        0 0 30px 8px rgba(255, 100, 20, 0.2),
-        inset 0 0 20px 5px rgba(255, 100, 20, 0.1);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        transparent 48%,
+        rgba(220, 90, 20, 0.3) 50%,
+        rgba(255, 120, 30, 0.5) 53%,
+        rgba(220, 90, 20, 0.25) 56%,
+        transparent 58%
+    );
+    box-shadow: 0 0 50px 12px rgba(255, 100, 20, 0.12);
 }
 
-/* Getting hotter — orange */
+/* Hot mid ring — bright orange */
 .r3 {
-    width: 76%;
-    height: 76%;
-    border: 3px solid rgba(255, 160, 50, 0.55);
-    box-shadow:
-        0 0 35px 10px rgba(255, 140, 30, 0.25),
-        0 0 70px 20px rgba(255, 120, 20, 0.1),
-        inset 0 0 25px 6px rgba(255, 140, 30, 0.12);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        transparent 54%,
+        rgba(255, 150, 40, 0.4) 56%,
+        rgba(255, 180, 60, 0.65) 59%,
+        rgba(255, 150, 40, 0.35) 62%,
+        transparent 64%
+    );
+    box-shadow: 0 0 60px 15px rgba(255, 140, 30, 0.15);
 }
 
-/* Brightest ring — hottest, yellow-white core of the disk */
+/* Hottest ring — yellow-white, closest to the shadow */
 .r4 {
-    width: 66%;
-    height: 66%;
-    border: 3.5px solid rgba(255, 210, 120, 0.7);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        transparent 60%,
+        rgba(255, 200, 80, 0.45) 62%,
+        rgba(255, 230, 140, 0.75) 65%,
+        rgba(255, 210, 100, 0.5) 68%,
+        transparent 70%
+    );
     box-shadow:
-        0 0 40px 12px rgba(255, 180, 60, 0.35),
-        0 0 80px 25px rgba(255, 150, 40, 0.15),
-        inset 0 0 30px 8px rgba(255, 200, 100, 0.2);
+        0 0 50px 15px rgba(255, 190, 70, 0.2),
+        0 0 100px 30px rgba(255, 150, 40, 0.08);
 }
 
+/* Innermost glow — white-hot, thin, fading into the shadow */
 .r5 {
-    width: 58%;
-    height: 58%;
-    border: 3px solid rgba(255, 230, 160, 0.6);
-    box-shadow:
-        0 0 35px 10px rgba(255, 200, 100, 0.3),
-        0 0 60px 15px rgba(255, 170, 60, 0.12),
-        inset 0 0 25px 6px rgba(255, 210, 130, 0.15);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        transparent 66%,
+        rgba(255, 240, 180, 0.3) 68%,
+        rgba(255, 250, 220, 0.5) 70%,
+        rgba(255, 240, 180, 0.2) 72%,
+        transparent 74%
+    );
 }
 
-/* Innermost visible ring — white-hot, fading into shadow */
+/* Doppler beaming — one side of the disk is brighter
+   (matter moving toward the observer is blue-shifted/brighter) */
 .r6 {
-    width: 52%;
-    height: 52%;
-    border: 2px solid rgba(255, 240, 200, 0.45);
-    box-shadow:
-        0 0 25px 8px rgba(255, 220, 150, 0.2),
-        inset 0 0 15px 4px rgba(255, 220, 150, 0.1);
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        from 180deg,
+        transparent 0deg,
+        rgba(255, 200, 100, 0.15) 60deg,
+        rgba(255, 230, 160, 0.35) 120deg,
+        rgba(255, 250, 200, 0.45) 170deg,
+        rgba(255, 230, 160, 0.35) 220deg,
+        rgba(255, 200, 100, 0.15) 280deg,
+        transparent 360deg
+    );
+    mask-image: radial-gradient(circle, transparent 42%, black 44%, black 74%, transparent 76%);
+    -webkit-mask-image: radial-gradient(circle, transparent 42%, black 44%, black 74%, transparent 76%);
+    filter: blur(4px);
 }
 
 /* ============================================
