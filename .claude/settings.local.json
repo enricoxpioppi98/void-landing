@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m http.server 8000)",
+      "Bash(for i:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/enrico/Projects/Design, Build, Ship/Assignment 1/v$i/**)",
+      "Bash(done)",
+      "Bash(open:*)",
+      "Bash(curl -sL \"https://www.sciencenews.org/wp-content/uploads/sites/2/2019/09/092719_mt_blackhole_feat.jpg?w=1030\" -o \"/Users/enrico/Projects/Design, Build, Ship/Assignment 1/v25/blackhole.jpg\")",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)"
+    ]
+  }
+}
